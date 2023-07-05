@@ -7,7 +7,7 @@
 
 Простой бот который занимается установкой видео с youtube
 
-## Устоновка (GNU/Linux)
+## Установка (GNU/Linux)
 
 ```bash
 git clone https://github.com/ZeroNiki/Youtube-Downloader-Bot.git 
@@ -20,7 +20,7 @@ cd Youtube-Downloader-Bot
 python3 -m venv venv && source venv/bin/activate
 ```
 
-Устоновите зависимости:
+Установите зависимости:
 
 ```bash
 pip install -r requirements.txt
