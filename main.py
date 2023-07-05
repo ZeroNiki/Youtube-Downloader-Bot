@@ -29,7 +29,7 @@ async def hello(message: types.Message):
 #Inline кнопка устоновки в формате .mp4
 @dp.callback_query_handler(text='download_mp4')
 async def inline_keyboard_mp4(call: types.CallbackQuery):
-    options = {'skip-download': True, 'format': 'mp4'}
+    options = {'skip-download': True, 'format': 'mp4', 'outtmpl': 'video/%(title)s.%(ext)s'}
 
     with ytd.YoutubeDL(options) as ytdl:
         ytdl.download([link])
@@ -39,16 +39,25 @@ async def inline_keyboard_mp4(call: types.CallbackQuery):
 
         await call.message.answer_video(video=video)
 
-#Inline кнопка устоновки в формате .mp4
+#Inline кнопка устоновки в формате .mp3
 @dp.callback_query_handler(text='download_mp3')
 async def inline_keyboard_mp3(call: types.CallbackQuery):
-    options = {'skip-download': True, 'format': 'mp4'}
+    options = {
+        'skip-download': True,
+        'format': 'bestaudio/best',
+        'outtmpl': 'mp3/%(title)s.%(ext)s',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+        }],
+    } 
 
     with ytd.YoutubeDL(options) as ytdl:
         ytdl.download([link])
         result = ytdl.extract_info("{}".format(link))
-        title = ytdl.prepare_filename(result)
-        audio = open(f'{title}', 'rb')
+        title = ytdl.prepare_filename(result)[:-5]
+        audio = open(f'{title}.mp3', 'rb')
 
         await call.message.answer_audio(audio=audio)
 
