@@ -1,58 +1,26 @@
-# Youtube-Downloader-Bot 
-## Об проекте
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/yt_dlp)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/aiogram)
+# Youtube downloader bot
+## About
+lib:
+  - aiogram
+  - yt-dlp
 
+Simple bot for downloading youtube video
 
-
-Простой бот который занимается установкой видео с youtube
-
-## Установка (GNU/Linux)
-
-```bash
-git clone https://github.com/ZeroNiki/Youtube-Downloader-Bot.git 
-```
-
-Перейдите в папку Youtube-Downloader-Bot и создадите вертуальное окружение:
-
-```bash
+## Installation
+clone the repo
+```sh
+git clone https://github.com/ZeroNiki/Youtube-Downloader-Bot.git
 cd Youtube-Downloader-Bot
-python3 -m venv venv && source venv/bin/activate
 ```
 
-Установите зависимости:
-
-```bash
-pip install -r requirements.txt
+## Configuration
+go to `src/.env` and insert your token from @BotFather:
+```
+TOKEN=your token 
 ```
 
-## Конфигурация
+### Start
 
-Сначала получите токен своего бота в @botfather. Затем создадите файл config.py, а в ней переменую TOKEN и вставсте токен вашего бота(в кавычки):
-
-```python
-TOKEN = 'Токен вашего бота'
 ```
-
-Запускае main.py
-
-------
-
-### Внимание!
-**!Бот устанавливает файлы в директорию video и mp3**
-
-Создайте папку mp3, jpg и video
-
-***Папки автомотически очищаются после отправки файла*** 
-
-----
-### Планы на проект
- - ~~Отправка файла пользователю~~
- - ~~Конвертировать в аудио~~ 
- - ~~Inline кнопки~~
-
-Добавлено недавно:
-- Возможность выбрать качество
-- Очистка дерикторий jpg, mp3, video
-
-
+python3 main.py
+```
